@@ -1,11 +1,39 @@
 import draw as draw
 import numpy as np
 
+draw.draw_plain_network([0,2,4,2,0],[2,0,2,4,2],[2,2],[0,4])    
+
+r=[]
+
+print('Enter the values of r for the respectives pipes 1,2,3,4,5')
+for i in range(5):
+    aa=float(input("Enter value of r for pipe- {}  = ".format(i+1)))
+    print(aa)
+    r.append(aa)
+        
+while(True):    
+    flow=[]
+    i=0
+    print('\n Enter the values of in/out flow at respective nodes A,B,C,D')
+    for i in ('A','B','C','D'):
+         flow.append(float(input('Enter value of flow for node- {}  = '.format(i))))
+    np.flow=flow
+    if(np.sum(flow)==0):
+        break
+    else:
+        print('\n Total inflow is not equal to total ouflow')
+        
+      
+
+
+
+
+print(r)
     
-np.r1=[1,3,2]
-np.r2=[2,1,3]
+np.r1=[r[0],r[4],r[3]]
+np.r2=[r[1],r[2],r[4]]
 value_of_r1=3
-np.discharge_at_node= [100,-25,-75,0]
+np.discharge_at_node= flow
 a= np.discharge_at_node[0]/2
 c1=(a+np.discharge_at_node[1])/2
 d=-a   
@@ -14,8 +42,8 @@ b=c1
 e=-(c1-d+np.discharge_at_node[3])
 np.flow_rate_in_pipe2=[b,e,c2]
 
-np.flow_rate_in_pipe1=[60,15,-40]
-np.flow_rate_in_pipe2=[20,-55,-15]
+np.flow_rate_in_pipe1=[a,c1,d]
+np.flow_rate_in_pipe2=[b,e,c2]
 for i in range(1,5):
     
     np.head_lossx=np.multiply(np.r1,np.flow_rate_in_pipe1)
@@ -50,9 +78,10 @@ for i in range(1,5):
     np.q=np.around(np.q,decimals=3)
 #    np.q=np.absolute(np.q)
     
-    draw.draw_network([0,2,4,2,0],[2,0,2,4,2],[2,2],[0,4],np.q)
+    draw.draw_network([0,2,4,2,0],[2,0,2,4,2],[2,2],[0,4],np.q,np.flow)
     
      
+print('+ve sign represents clockwise movement of fluid and vice versa')
 print(np.flow_rate_in_pipe1)
 print(np.flow_rate_in_pipe2)    
 

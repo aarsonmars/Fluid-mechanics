@@ -10,4 +10,4 @@ i=0
 print('Enter the values of in/out flow at respective nodes A,B,C,D')
 for i in ('A','B','C','D'):
      flow.append(float(input('Enter value of flow for node- {}  = '.format(i))))
-     
+

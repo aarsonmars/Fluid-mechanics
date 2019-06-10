@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def draw_network(x,y,x1,y1,q):
+def draw_network(x,y,x1,y1,q,f):
     
     
     fig=plt.figure(figsize=(11,7))
@@ -22,10 +22,10 @@ def draw_network(x,y,x1,y1,q):
     plt.arrow(-0.2,2,0.15,0,head_width=0.05)
     plt.arrow(2,0,0.15,0,head_width=0.05)
     plt.arrow(4,2,0.1,0.15,head_width=0.05)
-    ax.text(-0.8,2,'100$m^3/s$',fontsize=15)
-    ax.text(2.2,4.2,'25$m^3/s$',fontsize=15)
-    ax.text(4.2,2.2,'75$m^3/s$',fontsize=15)
-    ax.text(2.2,0,'0$m^3/s$',fontsize=15)        
+    ax.text(-0.8,2,str(f[0])+'$m^3/s$',fontsize=15)
+    ax.text(2.2,4.2,str(f[1])+'$m^3/s$',fontsize=15)
+    ax.text(4.2,2.2,str(f[2])+'$m^3/s$',fontsize=15)
+    ax.text(2.2,0,str(f[3])+'$m^3/s$',fontsize=15)        
                     
     plt.axis('off')
     plt.show()
